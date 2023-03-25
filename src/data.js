@@ -24,4 +24,11 @@ Data.getOneItem = async(req, res) => {
   res.status(200).json(items[0]);
 };
 
+
+Data.deleteOneItem = async(req, res) => {
+  const id = req.params.id;
+  const item = await ItemModel.findByIdAndDelete(id);
+  res.status(200).send(item);
+};
+
 module.exports = Data;
